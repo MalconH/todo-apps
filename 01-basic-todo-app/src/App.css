@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 30rem;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}

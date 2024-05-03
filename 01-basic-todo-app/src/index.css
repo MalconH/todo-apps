@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+html::after,
+html::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+:root {
+  --black: #272822;
+  --gray: #3e3d32;
+  --white: #f8f8f8;
+  --red: #f92672;
+  --lightblue: #66d9ef;
+
+  --bg-color: var(--black);
+  --text-primary: var(--white);
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  background-color: var(--bg-color);
+}
