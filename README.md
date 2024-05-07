@@ -12,7 +12,7 @@ Look, my friend, a table to see all the projects:
 
 | todo-app | code | demo |
 |----------|------|------|
-| work | in | progress |
+| todo-app 1 | [code](./01-basic-todo-app/) | [demo](https://malconh-todo-app-1.netlify.app/) |
 
 ## Installation
 
