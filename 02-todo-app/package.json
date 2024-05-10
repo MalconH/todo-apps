@@ -1,0 +1,31 @@
+{
+  "name": "02-todo-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "vite": "^5.2.0"
+  },
+  "description": "Todo app with feat to cross and uncross task out",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MalconH/todo-apps.git"
+  },
+  "author": "MalconH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MalconH/todo-apps/issues"
+  },
+  "homepage": "https://github.com/MalconH/todo-apps#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
