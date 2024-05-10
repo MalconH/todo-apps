@@ -9,8 +9,8 @@ Also I added a disabled state to the **add** button to prevent users from submit
 
 ## What comes next
 
-In `02-todo-app` I'll be adding the feature to cross and uncross each task out.
+In [02-todo-app](../02-todo-app/) I'll be adding the feature to cross and uncross each task out.
 
-> "It's not much, but it's hones work."
+> "It's not much, but it's honest work."
 >
 > _Some guy (probably)_
