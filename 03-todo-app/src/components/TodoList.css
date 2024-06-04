@@ -5,7 +5,7 @@
 */
 
 /* TodoList.jsx */
-.todo-app {
+.todo-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 /* AddTask.jsx */
-.input-label {
+.task-label {
   display: block;
   text-align: center;
   font-size: 0.875rem;
@@ -39,7 +39,7 @@
   gap: 1rem;
 }
 
-.input-task {
+.new-task {
   flex: 1;
   flex-basis: 100%;
   display: block;
@@ -55,7 +55,7 @@
   }
 }
 
-.add-task {
+.submit-task {
   flex-grow: 1;
   padding: 0.75rem 3rem;
   margin-left: auto;
@@ -88,11 +88,11 @@
   min-height: 3rem;
 }
 
-.task:has(.check-task:checked) .task-content {
+.task:has(.task-check:checked) .task-content {
   text-decoration: 2px line-through var(--orange);
 }
 
-.task:has(.check-task:checked) {
+.task:has(.task-check:checked) {
   opacity: 0.8;
 }
 
@@ -102,7 +102,7 @@
   cursor: pointer;
 }
 
-.check-task {
+.task-check {
   order: -1;
   position: relative;
   width: 1.125rem;
@@ -111,7 +111,7 @@
 }
 
 /* Custom checkbox on top of real checkbox */
-.check-task::before {
+.task-check::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -119,12 +119,12 @@
   background-color: var(--wheat);
   transition: 0.2s ease-out all;
 }
-.check-task:checked::before {
+.task-check:checked::before {
   background-color: var(--dark-olive);
 }
 
 /* Checkmark of the checkbox */
-.check-task::after {
+.task-check::after {
   content: "";
   position: absolute;
   top: 3px;
@@ -138,12 +138,12 @@
   transition: 0.3s ease-out all;
 }
 
-.check-task:checked::after {
+.task-check:checked::after {
   border-color: var(--wheat);
   transform: rotate(45deg);
 }
 
-.remove-task {
+.task-delete {
   margin-left: auto;
   border: 0;
   border-radius: 1rem;
@@ -161,7 +161,7 @@
 }
 
 @media screen and (min-width: 45rem) {
-  .input-task {
+  .new-task {
     flex-basis: auto;
     border-radius: 1rem 0 0 1rem;
   }
@@ -170,7 +170,7 @@
     gap: 0;
   }
 
-  .add-task {
+  .submit-task {
     flex-grow: 0;
     border-radius: 0 1rem 1rem 0;
   }
