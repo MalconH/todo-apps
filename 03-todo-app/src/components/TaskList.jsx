@@ -13,7 +13,7 @@ export function TaskList({ tasks, onCheck, onDelete }) {
               name="task-check"
               id="task-check"
               checked={task.isChecked}
-              onClick={() => onCheck(task.id)}
+              onChange={() => onCheck(task.id)}
             />
             <button className="task-delete" type="button" onClick={() => onDelete(task.id)}>
               Delete

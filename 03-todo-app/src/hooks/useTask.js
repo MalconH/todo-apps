@@ -1,15 +1,37 @@
 import { useState } from "react";
+import { getTasks, saveTasks } from "../services/firestore";
+import { formatTasksForDatabase, formatTasksFromDatabase } from "../utils/utils";
+import { useEffect } from "react";
 
-export function useTask(storageKey) {
-  const [tasks, setTasks] = useState(() => {
-    console.log("rerun");
-    if (localStorage.getItem(storageKey)) {
-      return JSON.parse(localStorage.getItem(storageKey));
+export function useTask() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+
+    // fetch data
+    async function getData() {
+      const tasks = await getTasks();
+
+      if (active) {
+        if (tasks) setTasks(formatTasksFromDatabase(tasks));
+      }
     }
 
-    // If there's nothing saved in local storage
-    return [];
-  }, [storageKey]);
+    getData();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  // Executes everytime tasks is updated
+  useEffect(() => {
+    if (tasks.length === 0) return;
+
+    const tasksForDB = formatTasksForDatabase(tasks);
+    saveTasks(tasksForDB);
+  }, [tasks]);
 
   const addTask = (content) => {
     const newTask = {

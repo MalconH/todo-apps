@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import { useTask } from "../hooks/useTask";
 import { TaskList } from "./TaskList";
 import "./TodoList.css";
 
 export function TodoList() {
-  const STORAGE_KEY = "userTasks";
-
-  const [tasks, addTask, removeTask, checkTask] = useTask(STORAGE_KEY);
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-  }, [tasks]);
+  const [tasks, addTask, removeTask, checkTask] = useTask();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +33,11 @@ export function TodoList() {
         </div>
       </form>
 
-      <TaskList tasks={tasks} onCheck={checkTask} onDelete={removeTask} />
+      {tasks.length !== 0 ? (
+        <TaskList tasks={tasks} onCheck={checkTask} onDelete={removeTask} />
+      ) : (
+        <span>Loading tasks...</span>
+      )}
     </section>
   );
 }
