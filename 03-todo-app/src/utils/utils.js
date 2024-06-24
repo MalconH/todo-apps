@@ -11,3 +11,7 @@ export function formatTasksForDatabase(tasks) {
 export function formatTasksFromDatabase(tasks) {
   return Object.values(tasks);
 }
+
+export function generateUserId() {
+  return `${Date.now()}`;
+}
