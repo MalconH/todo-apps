@@ -3,7 +3,12 @@ import { TaskList } from "./TaskList";
 import "./TodoList.css";
 
 export function TodoList() {
-  const [tasks, addTask, removeTask, checkTask] = useTask();
+  const [tasks, addTask, removeTask, checkTask, status] = useTask();
+
+  const statusDescriptions = {
+    fetching: "Loading tasks...",
+    resolved: "You have no tasks. Ready to add one?",
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +41,7 @@ export function TodoList() {
       {tasks.length !== 0 ? (
         <TaskList tasks={tasks} onCheck={checkTask} onDelete={removeTask} />
       ) : (
-        <span>Loading tasks...</span>
+        <span>{statusDescriptions[status]}</span>
       )}
     </section>
   );

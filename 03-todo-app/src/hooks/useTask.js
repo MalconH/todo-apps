@@ -1,29 +1,11 @@
-import { useState } from "react";
-import { getTasks, saveTasks } from "../services/firestore";
-import { formatTasksForDatabase, formatTasksFromDatabase } from "../utils/utils";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { saveTasks } from "../services/firestore";
+import { formatTasksForDatabase } from "../utils/utils";
+import { useTaskFromDB } from "./useTaskFromDB";
 
 export function useTask() {
   const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    let active = true;
-
-    // fetch data
-    async function getData() {
-      const tasks = await getTasks();
-
-      if (active) {
-        if (tasks) setTasks(formatTasksFromDatabase(tasks));
-      }
-    }
-
-    getData();
-
-    return () => {
-      active = false;
-    };
-  }, []);
+  const status = useTaskFromDB(setTasks);
 
   // Executes everytime tasks is updated
   useEffect(() => {
@@ -62,5 +44,5 @@ export function useTask() {
     setTasks([...tasks]);
   };
 
-  return [tasks, addTask, removeTask, checkTask];
+  return [tasks, addTask, removeTask, checkTask, status];
 }
